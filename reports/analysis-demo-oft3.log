@@ -34,6 +34,6 @@ Here is a preview of the cell contents:
 -------------------
 ['def get_frame(video, frame_index):', '    cap = cv2.VideoCapture(str(video))', '    cap.set(cv2.CAP_PROP_POS_FRAMES, frame_index)', '    ret, frame = cap.read()', '    return np.flip(frame, 2)']
 ...
-['    plt.xlabel("Width [px]")', '    plt.xlabel("Height [px]")', '    ', 'plt.tight_layout()', "plt.savefig(RESULTS / 'all-original-videos.png')"]
+['    plt.xlabel("Height [px]")', '    ', 'plt.tight_layout()', "plt.savefig(RESULTS / 'all-original-videos.png')", 'plt.show()']
 -------------------
 
