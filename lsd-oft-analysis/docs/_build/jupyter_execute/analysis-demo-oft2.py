@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Open Field Test Analysis Demo
+# # OFT2 Analysis
 # 
 # The goal of this notebook is to produce several plots and data tables using the mouse coordinates extracted from video using DeepLabCut
 # 
@@ -36,7 +36,7 @@ from skimage.draw import polygon
 from ruamel.yaml import YAML
 from IPython.display import display, HTML, Image
 from statsmodels.formula.api import ols
-from tqdm import tqdm
+from tqdm.notebook import tqdm
 from pathlib import Path
 from scipy.stats import gaussian_kde
 from skimage.transform import resize
@@ -146,6 +146,7 @@ for idx in tqdm(range(len(frames)), position=0, leave=True, desc="Creating summa
     
 plt.tight_layout()
 plt.savefig(RESULTS / 'all-original-videos.png')
+plt.show()
 
 
 # ## Visualize Manual Corner Registrations
@@ -232,7 +233,7 @@ for idx in tqdm(range(len(frames)), position=0, leave=True, desc="Correct frames
 for idx in tqdm(range(len(frames)), position=0, leave=True, desc="Creating individual plots"):
     plt.figure(figsize=(8,8))
     plt.imshow(corrected_frames[idx])
-    savepath = RESULTS / 'reference-plots' / 'corrected-frames-with-tracks' / f"{filename}.png"
+    savepath = RESULTS / 'reference-plots' / 'corrected-frames' / f"{filename}.png"
     if not savepath.parent.exists():
         savepath.parent.mkdir(parents=True)
     
@@ -323,7 +324,7 @@ for idx in tqdm(range(len(frames)), position=0, leave=True, desc="Creating indiv
     plt.xlabel("Width [mm]")
     plt.title(filename)
     
-    savepath = RESULTS / 'reference-plots' / 'corrected-frames' / f"{filename}.png"
+    savepath = RESULTS / 'reference-plots' / 'corrected-frames-with-tracks' / f"{filename}.png"
     if not savepath.parent.exists():
         savepath.parent.mkdir(parents=True)
     
@@ -359,7 +360,7 @@ plt.savefig(RESULTS / 'all-registrations.png')
 
 # ## Get Distances
 
-# In[11]:
+# In[9]:
 
 
 rows = []
@@ -394,7 +395,7 @@ distances.sample(3)
 # ### Quick data look
 # ANOVA plot (*assumptions such as distribution shape or homogeneity not checked here)
 
-# In[12]:
+# In[10]:
 
 
 for sex in 'mf':
@@ -414,7 +415,7 @@ for sex in 'mf':
 
 # ## Heatmaps
 
-# In[13]:
+# In[11]:
 
 
 video_info = []
@@ -432,10 +433,10 @@ treatment_df = pd.DataFrame(video_info)
 treatment_df['sex'] = treatment_df.group.apply(lambda x: 'm' if int(x) <= 12 else 'f')
 
 
-# In[28]:
+# In[12]:
 
 
-mgrid = np.mgrid[:w, :h]
+mgrid = np.mgrid[:h, :w]
 def get_kde(df, sample_every=1):
     data = df.T.values
     data = data[:,::sample_every]
@@ -461,7 +462,7 @@ for group_idx, group in treatment_df.groupby(['treatment', 'sex']):
     result[group_idx] = get_kde(df, 100)
 
 
-# In[29]:
+# In[13]:
 
 
 LEVELS = 20
@@ -507,7 +508,7 @@ plt.savefig(RESULTS / 'all-heatmaps.png')
 
 # ## Time in Center Area
 
-# In[30]:
+# In[14]:
 
 
 h, w = box_shape
@@ -570,13 +571,13 @@ time_in_center
 
 # Demonstrative image
 
-# In[31]:
+# In[15]:
 
 
 display(Image(savepath))
 
 
-# In[32]:
+# In[16]:
 
 
 for sex in 'mf':
@@ -597,7 +598,7 @@ for sex in 'mf':
 # ## Immobility Time
 # Defined as < 5mm per second
 
-# In[35]:
+# In[17]:
 
 
 speed_per_second = 10 # in mm
@@ -633,7 +634,7 @@ immobile.to_csv(RESULTS / 'immobile.csv', index=False)
 immobile
 
 
-# In[34]:
+# In[18]:
 
 
 for sex in 'mf':

@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Open Field Test Analysis Demo &#8212; Open Field Test Analysis</title>
+    <title>OFT3 Analysis &#8212; Open Field Test Analysis</title>
     
   <!-- Loaded before other Sphinx assets -->
   <link href="_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
@@ -52,7 +52,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="Open Field Test Analysis Demo" href="analysis-demo-oft2.html" />
+    <link rel="prev" title="OFT2 Analysis" href="analysis-demo-oft2.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -115,12 +115,12 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="current nav bd-sidenav">
  <li class="toctree-l1">
   <a class="reference internal" href="analysis-demo-oft2.html">
-   Open Field Test Analysis Demo
+   OFT2 Analysis
   </a>
  </li>
  <li class="toctree-l1 current active">
   <a class="current reference internal" href="#">
-   Open Field Test Analysis Demo
+   OFT3 Analysis
   </a>
  </li>
 </ul>
@@ -390,7 +390,7 @@ title="Print to PDF"
         <div class="col pl-md-3 pl-lg-5 content-container">
             <!-- Table of contents that is only displayed when printing the page -->
             <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Open Field Test Analysis Demo</h1>
+                <h1>OFT3 Analysis</h1>
                 <!-- Table of contents -->
                 <div id="print-main-content">
                     <div id="jb-print-toc">
@@ -462,8 +462,8 @@ title="Print to PDF"
                 
               <div>
                 
-  <section class="tex2jax_ignore mathjax_ignore" id="open-field-test-analysis-demo">
-<h1>Open Field Test Analysis Demo<a class="headerlink" href="#open-field-test-analysis-demo" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="oft3-analysis">
+<h1>OFT3 Analysis<a class="headerlink" href="#oft3-analysis" title="Permalink to this headline">#</a></h1>
 <p>The goal of this notebook is to produce several plots and data tables using the mouse coordinates extracted from video using DeepLabCut</p>
 <p>Results include</p>
 <ul class="simple">
@@ -496,7 +496,7 @@ title="Print to PDF"
 <span class="kn">from</span> <span class="nn">ruamel.yaml</span> <span class="kn">import</span> <span class="n">YAML</span>
 <span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">HTML</span><span class="p">,</span> <span class="n">Image</span>
 <span class="kn">from</span> <span class="nn">statsmodels.formula.api</span> <span class="kn">import</span> <span class="n">ols</span>
-<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">from</span> <span class="nn">tqdm.notebook</span> <span class="kn">import</span> <span class="n">tqdm</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="kn">import</span> <span class="n">gaussian_kde</span>
 <span class="kn">from</span> <span class="nn">skimage.transform</span> <span class="kn">import</span> <span class="n">resize</span>
@@ -636,508 +636,24 @@ fps: 30
     
 <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">RESULTS</span> <span class="o">/</span> <span class="s1">&#39;all-original-videos.png&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:   0%|                                                                                                                                                            | 0/110 [00:00&lt;?, ?it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:   2%|██▋                                                                                                                                                 | 2/110 [00:00&lt;00:06, 17.94it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:   5%|██████▋                                                                                                                                             | 5/110 [00:00&lt;00:04, 23.93it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:   7%|██████████▊                                                                                                                                         | 8/110 [00:00&lt;00:04, 22.61it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  10%|██████████████▋                                                                                                                                    | 11/110 [00:00&lt;00:03, 25.00it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  13%|██████████████████▋                                                                                                                                | 14/110 [00:00&lt;00:04, 23.73it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  15%|██████████████████████▋                                                                                                                            | 17/110 [00:00&lt;00:04, 22.33it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  19%|████████████████████████████                                                                                                                       | 21/110 [00:00&lt;00:03, 25.59it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  22%|████████████████████████████████                                                                                                                   | 24/110 [00:00&lt;00:03, 24.66it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  25%|█████████████████████████████████████▍                                                                                                             | 28/110 [00:01&lt;00:03, 26.10it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  29%|██████████████████████████████████████████▊                                                                                                        | 32/110 [00:01&lt;00:03, 25.56it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  32%|██████████████████████████████████████████████▊                                                                                                    | 35/110 [00:01&lt;00:02, 25.54it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  35%|██████████████████████████████████████████████████▊                                                                                                | 38/110 [00:01&lt;00:02, 26.25it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  37%|██████████████████████████████████████████████████████▊                                                                                            | 41/110 [00:01&lt;00:02, 27.07it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  41%|████████████████████████████████████████████████████████████▏                                                                                      | 45/110 [00:01&lt;00:02, 28.19it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  44%|████████████████████████████████████████████████████████████████▏                                                                                  | 48/110 [00:01&lt;00:02, 27.97it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  47%|█████████████████████████████████████████████████████████████████████▍                                                                             | 52/110 [00:02&lt;00:02, 28.38it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  51%|██████████████████████████████████████████████████████████████████████████▊                                                                        | 56/110 [00:02&lt;00:01, 29.45it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  55%|████████████████████████████████████████████████████████████████████████████████▏                                                                  | 60/110 [00:02&lt;00:01, 31.34it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  58%|█████████████████████████████████████████████████████████████████████████████████████▌                                                             | 64/110 [00:02&lt;00:01, 31.00it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  62%|██████████████████████████████████████████████████████████████████████████████████████████▊                                                        | 68/110 [00:02&lt;00:01, 29.14it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  65%|████████████████████████████████████████████████████████████████████████████████████████████████▏                                                  | 72/110 [00:02&lt;00:01, 29.66it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  69%|█████████████████████████████████████████████████████████████████████████████████████████████████████▌                                             | 76/110 [00:02&lt;00:01, 31.01it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  73%|██████████████████████████████████████████████████████████████████████████████████████████████████████████▉                                        | 80/110 [00:02&lt;00:00, 32.81it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  76%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                                  | 84/110 [00:03&lt;00:00, 31.84it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  80%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                             | 88/110 [00:03&lt;00:00, 32.79it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  84%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                        | 92/110 [00:03&lt;00:00, 33.76it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  87%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                  | 96/110 [00:03&lt;00:00, 34.78it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  91%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋             | 100/110 [00:03&lt;00:00, 34.39it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  95%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████        | 104/110 [00:03&lt;00:00, 34.89it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames:  98%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎  | 108/110 [00:03&lt;00:00, 34.63it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Loading frames: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 110/110 [00:03&lt;00:00, 29.20it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:   0%|                                                                                                                                                 | 0/110 [00:00&lt;?, ?it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:   1%|█▏                                                                                                                                       | 1/110 [00:00&lt;00:22,  4.82it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:   2%|██▍                                                                                                                                      | 2/110 [00:00&lt;00:18,  5.79it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:   3%|███▋                                                                                                                                     | 3/110 [00:00&lt;00:16,  6.43it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:   4%|████▉                                                                                                                                    | 4/110 [00:00&lt;00:17,  6.08it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:   5%|██████▏                                                                                                                                  | 5/110 [00:00&lt;00:16,  6.22it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:   5%|███████▍                                                                                                                                 | 6/110 [00:00&lt;00:15,  6.56it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:   6%|████████▋                                                                                                                                | 7/110 [00:01&lt;00:18,  5.52it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:   7%|█████████▉                                                                                                                               | 8/110 [00:01&lt;00:17,  5.72it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:   8%|███████████▏                                                                                                                             | 9/110 [00:01&lt;00:16,  6.07it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:   9%|████████████▎                                                                                                                           | 10/110 [00:01&lt;00:15,  6.63it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  10%|█████████████▌                                                                                                                          | 11/110 [00:01&lt;00:15,  6.40it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  11%|██████████████▊                                                                                                                         | 12/110 [00:01&lt;00:15,  6.17it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  12%|████████████████                                                                                                                        | 13/110 [00:02&lt;00:15,  6.40it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  13%|█████████████████▎                                                                                                                      | 14/110 [00:02&lt;00:14,  6.66it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  14%|██████████████████▌                                                                                                                     | 15/110 [00:02&lt;00:14,  6.72it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  15%|███████████████████▊                                                                                                                    | 16/110 [00:02&lt;00:14,  6.52it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  15%|█████████████████████                                                                                                                   | 17/110 [00:02&lt;00:15,  6.19it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  16%|██████████████████████▎                                                                                                                 | 18/110 [00:02&lt;00:14,  6.35it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  17%|███████████████████████▍                                                                                                                | 19/110 [00:03&lt;00:13,  6.64it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  18%|████████████████████████▋                                                                                                               | 20/110 [00:03&lt;00:13,  6.47it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  19%|█████████████████████████▉                                                                                                              | 21/110 [00:03&lt;00:13,  6.69it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  20%|███████████████████████████▏                                                                                                            | 22/110 [00:03&lt;00:12,  6.80it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  21%|████████████████████████████▍                                                                                                           | 23/110 [00:03&lt;00:13,  6.60it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  22%|█████████████████████████████▋                                                                                                          | 24/110 [00:03&lt;00:13,  6.16it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  23%|██████████████████████████████▉                                                                                                         | 25/110 [00:03&lt;00:13,  6.53it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  24%|████████████████████████████████▏                                                                                                       | 26/110 [00:04&lt;00:12,  6.70it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  25%|█████████████████████████████████▍                                                                                                      | 27/110 [00:04&lt;00:15,  5.41it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  25%|██████████████████████████████████▌                                                                                                     | 28/110 [00:04&lt;00:14,  5.62it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  26%|███████████████████████████████████▊                                                                                                    | 29/110 [00:04&lt;00:13,  6.15it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  27%|█████████████████████████████████████                                                                                                   | 30/110 [00:04&lt;00:12,  6.44it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  28%|██████████████████████████████████████▎                                                                                                 | 31/110 [00:04&lt;00:12,  6.39it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  29%|███████████████████████████████████████▌                                                                                                | 32/110 [00:05&lt;00:12,  6.16it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  30%|████████████████████████████████████████▊                                                                                               | 33/110 [00:05&lt;00:11,  6.67it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  31%|██████████████████████████████████████████                                                                                              | 34/110 [00:05&lt;00:11,  6.77it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  32%|███████████████████████████████████████████▎                                                                                            | 35/110 [00:05&lt;00:11,  6.26it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  33%|████████████████████████████████████████████▌                                                                                           | 36/110 [00:05&lt;00:11,  6.24it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  34%|█████████████████████████████████████████████▋                                                                                          | 37/110 [00:05&lt;00:11,  6.45it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  35%|██████████████████████████████████████████████▉                                                                                         | 38/110 [00:06&lt;00:11,  6.38it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  35%|████████████████████████████████████████████████▏                                                                                       | 39/110 [00:06&lt;00:11,  6.09it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  36%|█████████████████████████████████████████████████▍                                                                                      | 40/110 [00:06&lt;00:10,  6.56it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  37%|██████████████████████████████████████████████████▋                                                                                     | 41/110 [00:06&lt;00:09,  6.99it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  38%|███████████████████████████████████████████████████▉                                                                                    | 42/110 [00:06&lt;00:09,  6.97it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  39%|█████████████████████████████████████████████████████▏                                                                                  | 43/110 [00:06&lt;00:09,  6.75it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  40%|██████████████████████████████████████████████████████▍                                                                                 | 44/110 [00:06&lt;00:10,  6.34it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  41%|███████████████████████████████████████████████████████▋                                                                                | 45/110 [00:07&lt;00:10,  6.44it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  42%|████████████████████████████████████████████████████████▊                                                                               | 46/110 [00:07&lt;00:09,  6.69it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  43%|██████████████████████████████████████████████████████████                                                                              | 47/110 [00:07&lt;00:09,  6.56it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  44%|███████████████████████████████████████████████████████████▎                                                                            | 48/110 [00:07&lt;00:09,  6.23it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  45%|████████████████████████████████████████████████████████████▌                                                                           | 49/110 [00:07&lt;00:09,  6.37it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  45%|█████████████████████████████████████████████████████████████▊                                                                          | 50/110 [00:07&lt;00:09,  6.63it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  46%|███████████████████████████████████████████████████████████████                                                                         | 51/110 [00:08&lt;00:10,  5.40it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  47%|████████████████████████████████████████████████████████████████▎                                                                       | 52/110 [00:08&lt;00:10,  5.41it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  48%|█████████████████████████████████████████████████████████████████▌                                                                      | 53/110 [00:08&lt;00:10,  5.45it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  49%|██████████████████████████████████████████████████████████████████▊                                                                     | 54/110 [00:08&lt;00:09,  5.82it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  50%|████████████████████████████████████████████████████████████████████                                                                    | 55/110 [00:08&lt;00:08,  6.23it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  51%|█████████████████████████████████████████████████████████████████████▏                                                                  | 56/110 [00:08&lt;00:08,  6.20it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  52%|██████████████████████████████████████████████████████████████████████▍                                                                 | 57/110 [00:09&lt;00:07,  6.65it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  53%|███████████████████████████████████████████████████████████████████████▋                                                                | 58/110 [00:09&lt;00:07,  6.90it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  54%|████████████████████████████████████████████████████████████████████████▉                                                               | 59/110 [00:09&lt;00:07,  7.23it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  55%|██████████████████████████████████████████████████████████████████████████▏                                                             | 60/110 [00:09&lt;00:06,  7.15it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  55%|███████████████████████████████████████████████████████████████████████████▍                                                            | 61/110 [00:09&lt;00:06,  7.64it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  56%|████████████████████████████████████████████████████████████████████████████▋                                                           | 62/110 [00:09&lt;00:06,  7.63it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  57%|█████████████████████████████████████████████████████████████████████████████▉                                                          | 63/110 [00:09&lt;00:06,  7.42it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  58%|███████████████████████████████████████████████████████████████████████████████▏                                                        | 64/110 [00:09&lt;00:06,  7.55it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  59%|████████████████████████████████████████████████████████████████████████████████▎                                                       | 65/110 [00:10&lt;00:05,  7.98it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  60%|█████████████████████████████████████████████████████████████████████████████████▌                                                      | 66/110 [00:10&lt;00:05,  8.02it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  61%|██████████████████████████████████████████████████████████████████████████████████▊                                                     | 67/110 [00:10&lt;00:05,  7.68it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  62%|████████████████████████████████████████████████████████████████████████████████████                                                    | 68/110 [00:10&lt;00:05,  7.39it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  63%|█████████████████████████████████████████████████████████████████████████████████████▎                                                  | 69/110 [00:10&lt;00:05,  7.77it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  64%|██████████████████████████████████████████████████████████████████████████████████████▌                                                 | 70/110 [00:10&lt;00:04,  8.01it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  65%|███████████████████████████████████████████████████████████████████████████████████████▊                                                | 71/110 [00:10&lt;00:05,  7.80it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  65%|█████████████████████████████████████████████████████████████████████████████████████████                                               | 72/110 [00:10&lt;00:05,  7.52it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  66%|██████████████████████████████████████████████████████████████████████████████████████████▎                                             | 73/110 [00:11&lt;00:05,  7.38it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  67%|███████████████████████████████████████████████████████████████████████████████████████████▍                                            | 74/110 [00:11&lt;00:04,  7.37it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  68%|████████████████████████████████████████████████████████████████████████████████████████████▋                                           | 75/110 [00:11&lt;00:04,  7.84it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  69%|█████████████████████████████████████████████████████████████████████████████████████████████▉                                          | 76/110 [00:11&lt;00:04,  7.82it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  70%|███████████████████████████████████████████████████████████████████████████████████████████████▏                                        | 77/110 [00:11&lt;00:04,  7.56it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  71%|████████████████████████████████████████████████████████████████████████████████████████████████▍                                       | 78/110 [00:11&lt;00:04,  7.60it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  72%|█████████████████████████████████████████████████████████████████████████████████████████████████▋                                      | 79/110 [00:11&lt;00:03,  8.09it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  73%|██████████████████████████████████████████████████████████████████████████████████████████████████▉                                     | 80/110 [00:12&lt;00:03,  8.00it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  74%|████████████████████████████████████████████████████████████████████████████████████████████████████▏                                   | 81/110 [00:12&lt;00:04,  5.85it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  75%|█████████████████████████████████████████████████████████████████████████████████████████████████████▍                                  | 82/110 [00:12&lt;00:04,  6.26it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  75%|██████████████████████████████████████████████████████████████████████████████████████████████████████▌                                 | 83/110 [00:12&lt;00:03,  6.80it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  76%|███████████████████████████████████████████████████████████████████████████████████████████████████████▊                                | 84/110 [00:12&lt;00:03,  6.93it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  77%|█████████████████████████████████████████████████████████████████████████████████████████████████████████                               | 85/110 [00:12&lt;00:03,  6.94it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  78%|██████████████████████████████████████████████████████████████████████████████████████████████████████████▎                             | 86/110 [00:12&lt;00:03,  7.04it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  79%|███████████████████████████████████████████████████████████████████████████████████████████████████████████▌                            | 87/110 [00:13&lt;00:03,  7.53it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  80%|████████████████████████████████████████████████████████████████████████████████████████████████████████████▊                           | 88/110 [00:13&lt;00:02,  7.68it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  81%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████                          | 89/110 [00:13&lt;00:02,  7.72it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  82%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████▎                        | 90/110 [00:13&lt;00:02,  7.41it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  83%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                       | 91/110 [00:13&lt;00:02,  7.84it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  84%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                      | 92/110 [00:13&lt;00:02,  7.75it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  85%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                     | 93/110 [00:13&lt;00:02,  7.58it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  85%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏                   | 94/110 [00:14&lt;00:02,  7.24it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  86%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                  | 95/110 [00:14&lt;00:01,  7.57it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  87%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋                 | 96/110 [00:14&lt;00:01,  7.57it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  88%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉                | 97/110 [00:14&lt;00:01,  7.42it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  89%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏              | 98/110 [00:14&lt;00:01,  7.42it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  90%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍             | 99/110 [00:14&lt;00:01,  7.72it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  91%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋            | 100/110 [00:14&lt;00:01,  7.63it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  92%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▉           | 101/110 [00:14&lt;00:01,  7.39it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  93%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▏         | 102/110 [00:15&lt;00:01,  7.49it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  94%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍        | 103/110 [00:15&lt;00:00,  7.71it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  95%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋       | 104/110 [00:15&lt;00:00,  8.01it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  95%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊      | 105/110 [00:15&lt;00:00,  8.05it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  96%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████     | 106/110 [00:15&lt;00:00,  7.81it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  97%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▎   | 107/110 [00:15&lt;00:00,  8.05it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  98%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌  | 108/110 [00:15&lt;00:00,  7.92it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots:  99%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▊ | 109/110 [00:15&lt;00:00,  7.82it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 110/110 [00:16&lt;00:00,  7.43it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 110/110 [00:16&lt;00:00,  6.84it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot:   0%|                                                                                                                                                     | 0/110 [00:00&lt;?, ?it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot:   6%|████████▉                                                                                                                                    | 7/110 [00:00&lt;00:01, 58.98it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot:  12%|████████████████▌                                                                                                                           | 13/110 [00:00&lt;00:03, 29.98it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot:  18%|█████████████████████████▍                                                                                                                  | 20/110 [00:00&lt;00:02, 39.69it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot:  25%|██████████████████████████████████▎                                                                                                         | 27/110 [00:00&lt;00:01, 46.39it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot:  31%|███████████████████████████████████████████▎                                                                                                | 34/110 [00:00&lt;00:01, 51.21it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot:  36%|██████████████████████████████████████████████████▉                                                                                         | 40/110 [00:00&lt;00:01, 53.26it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot:  42%|██████████████████████████████████████████████████████████▌                                                                                 | 46/110 [00:00&lt;00:01, 55.12it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot:  47%|██████████████████████████████████████████████████████████████████▏                                                                         | 52/110 [00:01&lt;00:01, 55.25it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot:  54%|███████████████████████████████████████████████████████████████████████████                                                                 | 59/110 [00:01&lt;00:00, 57.69it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot:  61%|█████████████████████████████████████████████████████████████████████████████████████▎                                                      | 67/110 [00:01&lt;00:00, 61.91it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot:  67%|██████████████████████████████████████████████████████████████████████████████████████████████▏                                             | 74/110 [00:01&lt;00:00, 63.29it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot:  75%|████████████████████████████████████████████████████████████████████████████████████████████████████████▎                                   | 82/110 [00:01&lt;00:00, 65.59it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot:  82%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████▌                         | 90/110 [00:01&lt;00:00, 38.98it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot:  88%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▍                | 97/110 [00:01&lt;00:00, 44.55it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot:  95%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋      | 105/110 [00:02&lt;00:00, 50.32it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating summary plot: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 110/110 [00:02&lt;00:00, 50.86it/s]
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>
-</pre></div>
-</div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "84fb7be454424b8dbbca0c092c94e6ba"}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "7bba901f9e2644aa88ce9f249f7c9f40"}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"version_major": 2, "version_minor": 0, "model_id": "15346c398ece4a1f85b6d47db672836b"}
+</script><div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
 <span class="ne">KeyboardInterrupt</span><span class="g g-Whitespace">                         </span>Traceback (most recent call last)
 <span class="nn">Input In [5],</span> in <span class="ni">&lt;cell line: 44&gt;</span><span class="nt">()</span>
 <span class="g g-Whitespace">     </span><span class="mi">41</span>     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Height [px]&quot;</span><span class="p">)</span>
 <span class="g g-Whitespace">     </span><span class="mi">43</span> <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
 <span class="ne">---&gt; </span><span class="mi">44</span> <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="n">RESULTS</span> <span class="o">/</span> <span class="s1">&#39;all-original-videos.png&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">45</span> <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 
 <span class="nn">File /opt/conda/lib/python3.10/site-packages/matplotlib/pyplot.py:980,</span> in <span class="ni">savefig</span><span class="nt">(*args, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">978</span> <span class="n">fig</span> <span class="o">=</span> <span class="n">gcf</span><span class="p">()</span>
@@ -1294,11 +810,11 @@ fps: 30
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots: 100%|███████████████████████████| 110/110 [00:17&lt;00:00,  6.36it/s]
-Creating summary plot: 100%|███████████████████████████████| 110/110 [00:01&lt;00:00, 63.36it/s]
-</pre></div>
-</div>
-<img alt="_images/analysis-demo-oft3_9_1.png" src="_images/analysis-demo-oft3_9_1.png" />
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "3ef84a9fa09042b58abdd084e683226f", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "882db72b15994f0286cd0691af1d9b26", "version_major": 2, "version_minor": 0}
+</script><img alt="_images/analysis-demo-oft3_9_2.png" src="_images/analysis-demo-oft3_9_2.png" />
 </div>
 </div>
 </section>
@@ -1340,7 +856,7 @@ Creating summary plot: 100%|█████████████████�
 <span class="k">for</span> <span class="n">idx</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">frames</span><span class="p">)),</span> <span class="n">position</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">leave</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">desc</span><span class="o">=</span><span class="s2">&quot;Creating individual plots&quot;</span><span class="p">):</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span><span class="mi">8</span><span class="p">))</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">imshow</span><span class="p">(</span><span class="n">corrected_frames</span><span class="p">[</span><span class="n">idx</span><span class="p">])</span>
-    <span class="n">savepath</span> <span class="o">=</span> <span class="n">RESULTS</span> <span class="o">/</span> <span class="s1">&#39;reference-plots&#39;</span> <span class="o">/</span> <span class="s1">&#39;corrected-frames-with-tracks&#39;</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.png&quot;</span>
+    <span class="n">savepath</span> <span class="o">=</span> <span class="n">RESULTS</span> <span class="o">/</span> <span class="s1">&#39;reference-plots&#39;</span> <span class="o">/</span> <span class="s1">&#39;corrected-frames&#39;</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.png&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">savepath</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
         <span class="n">savepath</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     
@@ -1367,13 +883,15 @@ Creating summary plot: 100%|█████████████████�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Find homogeneous transforms: 100%|███████████████████████| 110/110 [00:00&lt;00:00, 2212.44it/s]
-Correct frames: 100%|█████████████████████████████████████| 110/110 [00:00&lt;00:00, 245.08it/s]
-Creating individual plots: 100%|███████████████████████████| 110/110 [00:10&lt;00:00, 10.35it/s]
-Creating summary plot: 100%|███████████████████████████████| 110/110 [00:01&lt;00:00, 68.69it/s]
-</pre></div>
-</div>
-<img alt="_images/analysis-demo-oft3_11_1.png" src="_images/analysis-demo-oft3_11_1.png" />
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "3c412d8540b647dd8b40c9fd1df2d483", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "6d4f47d490d8455bb3f81052861fdc4c", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "7c6edf6a10154a40aca3eee3aa38b13b", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "45b251dc6ad548bbba3741f543613194", "version_major": 2, "version_minor": 0}
+</script><img alt="_images/analysis-demo-oft3_11_4.png" src="_images/analysis-demo-oft3_11_4.png" />
 </div>
 </div>
 </section>
@@ -1442,7 +960,7 @@ Creating summary plot: 100%|█████████████████�
     <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Width [mm]&quot;</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">filename</span><span class="p">)</span>
     
-    <span class="n">savepath</span> <span class="o">=</span> <span class="n">RESULTS</span> <span class="o">/</span> <span class="s1">&#39;reference-plots&#39;</span> <span class="o">/</span> <span class="s1">&#39;corrected-frames&#39;</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.png&quot;</span>
+    <span class="n">savepath</span> <span class="o">=</span> <span class="n">RESULTS</span> <span class="o">/</span> <span class="s1">&#39;reference-plots&#39;</span> <span class="o">/</span> <span class="s1">&#39;corrected-frames-with-tracks&#39;</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">filename</span><span class="si">}</span><span class="s2">.png&quot;</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">savepath</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">exists</span><span class="p">():</span>
         <span class="n">savepath</span><span class="o">.</span><span class="n">parent</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     
@@ -1478,28 +996,16 @@ Creating summary plot: 100%|█████████████████�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots: 100%|███████████████████████████| 110/110 [00:36&lt;00:00,  3.05it/s]
-Creating summary plot: 100%|███████████████████████████████| 110/110 [00:09&lt;00:00, 11.48it/s]
-</pre></div>
-</div>
-<img alt="_images/analysis-demo-oft3_13_1.png" src="_images/analysis-demo-oft3_13_1.png" />
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "499cfd47968a4e5bb9cc783b0e2f5574", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "b14b847914604c3fb04e643b9b040b37", "version_major": 2, "version_minor": 0}
+</script><img alt="_images/analysis-demo-oft3_13_2.png" src="_images/analysis-demo-oft3_13_2.png" />
 </div>
 </div>
 </section>
 <section id="get-distances">
 <h2>Get Distances<a class="headerlink" href="#get-distances" title="Permalink to this headline">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;female_g10_B1&#39;
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rows</span> <span class="o">=</span> <span class="p">[]</span>
@@ -1532,10 +1038,9 @@ Creating summary plot: 100%|█████████████████�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████████████████████████████████████████████████| 110/110 [00:08&lt;00:00, 12.97it/s]
-</pre></div>
-</div>
-<div class="output text_html"><div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "e07e9e34a8fc4daba0187d7690ceaa5e", "version_major": 2, "version_minor": 0}
+</script><div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1562,26 +1067,26 @@ Creating summary plot: 100%|█████████████████�
   </thead>
   <tbody>
     <tr>
-      <th>70</th>
-      <td>male_g13_CON</td>
-      <td>48300.866131</td>
-      <td>male</td>
-      <td>13</td>
+      <th>50</th>
+      <td>female_g8_CON</td>
+      <td>35025.470121</td>
+      <td>female</td>
+      <td>8</td>
       <td>CON</td>
     </tr>
     <tr>
-      <th>21</th>
-      <td>female_g1_B2</td>
-      <td>36570.362666</td>
+      <th>11</th>
+      <td>female_g12_KET</td>
+      <td>41498.577948</td>
       <td>female</td>
-      <td>1</td>
-      <td>B2</td>
+      <td>12</td>
+      <td>KET</td>
     </tr>
     <tr>
-      <th>89</th>
-      <td>male_g4_CON</td>
-      <td>36465.949887</td>
-      <td>male</td>
+      <th>35</th>
+      <td>female_g4_CON</td>
+      <td>41104.744178</td>
+      <td>female</td>
       <td>4</td>
       <td>CON</td>
     </tr>
@@ -1608,8 +1113,8 @@ Creating summary plot: 100%|█████████████████�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><h2>male</h2></div><img alt="_images/analysis-demo-oft3_18_1.png" src="_images/analysis-demo-oft3_18_1.png" />
-<img alt="_images/analysis-demo-oft3_18_2.png" src="_images/analysis-demo-oft3_18_2.png" />
+<div class="output text_html"><h2>male</h2></div><img alt="_images/analysis-demo-oft3_17_1.png" src="_images/analysis-demo-oft3_17_1.png" />
+<img alt="_images/analysis-demo-oft3_17_2.png" src="_images/analysis-demo-oft3_17_2.png" />
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1651,8 +1156,8 @@ Creating summary plot: 100%|█████████████████�
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html"><h2>female</h2></div><img alt="_images/analysis-demo-oft3_18_5.png" src="_images/analysis-demo-oft3_18_5.png" />
-<img alt="_images/analysis-demo-oft3_18_6.png" src="_images/analysis-demo-oft3_18_6.png" />
+</div></div><div class="output text_html"><h2>female</h2></div><img alt="_images/analysis-demo-oft3_17_5.png" src="_images/analysis-demo-oft3_17_5.png" />
+<img alt="_images/analysis-demo-oft3_17_6.png" src="_images/analysis-demo-oft3_17_6.png" />
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -1750,20 +1255,29 @@ Creating summary plot: 100%|█████████████████�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>B1/female: 100%|█████████████████████████████████████████████| 11/11 [00:00&lt;00:00, 13.18it/s]
-B1/male: 100%|███████████████████████████████████████████████| 10/10 [00:00&lt;00:00, 12.04it/s]
-B2/female: 100%|█████████████████████████████████████████████| 11/11 [00:00&lt;00:00, 13.69it/s]
-B2/male: 100%|███████████████████████████████████████████████| 11/11 [00:00&lt;00:00, 13.10it/s]
-B3/female: 100%|█████████████████████████████████████████████| 11/11 [00:00&lt;00:00, 12.91it/s]
-B3/male: 100%|███████████████████████████████████████████████| 11/11 [00:00&lt;00:00, 13.73it/s]
-CON/female: 100%|████████████████████████████████████████████| 11/11 [00:00&lt;00:00, 14.74it/s]
-CON/male: 100%|██████████████████████████████████████████████| 11/11 [00:00&lt;00:00, 13.90it/s]
-KET/female: 100%|████████████████████████████████████████████| 11/11 [00:00&lt;00:00, 15.21it/s]
-KET/male: 100%|██████████████████████████████████████████████| 11/11 [00:00&lt;00:00, 13.64it/s]
-None/female: 100%|█████████████████████████████████████████████| 1/1 [00:00&lt;00:00, 38.88it/s]
-</pre></div>
-</div>
-</div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "3e9597d822db4d859362aeed476c524f", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "90e3a6762c724f9f8def32a1589b82fa", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "7719f176ca5349e6997dd31835b4c8e5", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "b8511365120d49fcaf79ae3c94e46af6", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "a103c3c26bbf44f6bf2774e94196f8b9", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "049db0d9e67b4ce79e83f260acb81868", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "6b69e69c9ad8478bad585d22e667c15e", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "2fa686df5dd348c593b52df34b561fa9", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "ff4d76b9700748a79b590f2d8de5690f", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "f563c13fea4c49fca13a98d1623e9aa3", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "519aba0238f54d829fe4425633720bfe", "version_major": 2, "version_minor": 0}
+</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1810,11 +1324,11 @@ None/female: 100%|████████████████████�
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots: 100%|█████████████████████████████| 10/10 [00:00&lt;00:00, 12.91it/s]
-Creating summary plots: 10it [00:00, 36.30it/s]
-</pre></div>
-</div>
-<img alt="_images/analysis-demo-oft3_22_1.png" src="_images/analysis-demo-oft3_22_1.png" />
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "73fb7742bb07445c93f56c8f055b3ace", "version_major": 2, "version_minor": 0}
+</script><script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "63e81e051f324abfb3032aa620d9d271", "version_major": 2, "version_minor": 0}
+</script><img alt="_images/analysis-demo-oft3_21_2.png" src="_images/analysis-demo-oft3_21_2.png" />
 </div>
 </div>
 </section>
@@ -1875,17 +1389,15 @@ Creating summary plots: 10it [00:00, 36.30it/s]
     <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 <span class="n">time_in_center</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
-<span class="n">time_in_center</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">time_in_center</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;m&#39;</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">12</span> <span class="k">else</span> <span class="s1">&#39;f&#39;</span><span class="p">)</span>
 <span class="n">time_in_center</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">RESULTS</span> <span class="o">/</span> <span class="s1">&#39;time_in_center.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">time_in_center</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Creating individual plots: 100%|███████████████████████████| 110/110 [00:37&lt;00:00,  2.96it/s]
-</pre></div>
-</div>
-<div class="output text_html"><div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "faaebac49866462a99dc1deab5888210", "version_major": 2, "version_minor": 0}
+</script><div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -1915,7 +1427,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>0</th>
       <td>female_g10_B1</td>
       <td>247.73</td>
-      <td>m</td>
+      <td>female</td>
       <td>10</td>
       <td>B1</td>
     </tr>
@@ -1923,7 +1435,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>1</th>
       <td>female_g10_B2</td>
       <td>240.37</td>
-      <td>m</td>
+      <td>female</td>
       <td>10</td>
       <td>B2</td>
     </tr>
@@ -1931,7 +1443,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>2</th>
       <td>female_g10_B3</td>
       <td>171.87</td>
-      <td>m</td>
+      <td>female</td>
       <td>10</td>
       <td>B3</td>
     </tr>
@@ -1939,7 +1451,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>3</th>
       <td>female_g10_KET</td>
       <td>152.00</td>
-      <td>m</td>
+      <td>female</td>
       <td>10</td>
       <td>KET</td>
     </tr>
@@ -1947,7 +1459,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>4</th>
       <td>female_g11_B1</td>
       <td>244.77</td>
-      <td>m</td>
+      <td>female</td>
       <td>11</td>
       <td>B1</td>
     </tr>
@@ -1963,7 +1475,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>105</th>
       <td>male_g8_KET</td>
       <td>172.57</td>
-      <td>m</td>
+      <td>male</td>
       <td>8</td>
       <td>KET</td>
     </tr>
@@ -1971,7 +1483,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>106</th>
       <td>male_g9_B1</td>
       <td>218.80</td>
-      <td>m</td>
+      <td>male</td>
       <td>9</td>
       <td>B1</td>
     </tr>
@@ -1979,7 +1491,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>107</th>
       <td>male_g9_B2</td>
       <td>301.10</td>
-      <td>m</td>
+      <td>male</td>
       <td>9</td>
       <td>B2</td>
     </tr>
@@ -1987,7 +1499,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>108</th>
       <td>male_g9_B3</td>
       <td>218.50</td>
-      <td>m</td>
+      <td>male</td>
       <td>9</td>
       <td>B3</td>
     </tr>
@@ -1995,7 +1507,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>109</th>
       <td>male_g9_CON</td>
       <td>208.20</td>
-      <td>m</td>
+      <td>male</td>
       <td>9</td>
       <td>CON</td>
     </tr>
@@ -2012,12 +1524,12 @@ Creating summary plots: 10it [00:00, 36.30it/s]
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/analysis-demo-oft3_26_0.png" src="_images/analysis-demo-oft3_26_0.png" />
+<img alt="_images/analysis-demo-oft3_25_0.png" src="_images/analysis-demo-oft3_25_0.png" />
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">sex</span> <span class="ow">in</span> <span class="s1">&#39;mf&#39;</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">sex</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;male&#39;</span><span class="p">,</span> <span class="s1">&#39;female&#39;</span><span class="p">]:</span>
     <span class="k">if</span> <span class="n">sex</span> <span class="o">==</span> <span class="s1">&#39;m&#39;</span><span class="p">:</span>
         <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&lt;h2&gt;Male&lt;/h2&gt;&quot;</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
@@ -2034,8 +1546,8 @@ Creating summary plots: 10it [00:00, 36.30it/s]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><h2>Male</h2></div><img alt="_images/analysis-demo-oft3_27_1.png" src="_images/analysis-demo-oft3_27_1.png" />
-<img alt="_images/analysis-demo-oft3_27_2.png" src="_images/analysis-demo-oft3_27_2.png" />
+<div class="output text_html"><h2>Female</h2></div><img alt="_images/analysis-demo-oft3_26_1.png" src="_images/analysis-demo-oft3_26_1.png" />
+<img alt="_images/analysis-demo-oft3_26_2.png" src="_images/analysis-demo-oft3_26_2.png" />
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2063,22 +1575,22 @@ Creating summary plots: 10it [00:00, 36.30it/s]
   <tbody>
     <tr>
       <th>C(treatment)</th>
-      <td>70554.000349</td>
+      <td>23228.014278</td>
       <td>4.0</td>
-      <td>8.57133</td>
-      <td>0.000006</td>
+      <td>2.400965</td>
+      <td>0.0625</td>
     </tr>
     <tr>
       <th>Residual</th>
-      <td>187264.235075</td>
-      <td>91.0</td>
+      <td>118512.019087</td>
+      <td>49.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html"><h2>Female</h2></div><img alt="_images/analysis-demo-oft3_27_5.png" src="_images/analysis-demo-oft3_27_5.png" />
-<img alt="_images/analysis-demo-oft3_27_6.png" src="_images/analysis-demo-oft3_27_6.png" />
+</div></div><div class="output text_html"><h2>Female</h2></div><img alt="_images/analysis-demo-oft3_26_5.png" src="_images/analysis-demo-oft3_26_5.png" />
+<img alt="_images/analysis-demo-oft3_26_6.png" src="_images/analysis-demo-oft3_26_6.png" />
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2106,15 +1618,15 @@ Creating summary plots: 10it [00:00, 36.30it/s]
   <tbody>
     <tr>
       <th>C(treatment)</th>
-      <td>46653.423318</td>
+      <td>91950.545974</td>
       <td>5.0</td>
-      <td>3.953261</td>
-      <td>0.042032</td>
+      <td>10.616013</td>
+      <td>5.506722e-07</td>
     </tr>
     <tr>
       <th>Residual</th>
-      <td>18881.999175</td>
-      <td>8.0</td>
+      <td>86614.949182</td>
+      <td>50.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -2156,17 +1668,15 @@ Creating summary plots: 10it [00:00, 36.30it/s]
     <span class="p">})</span>
     
 <span class="n">immobile</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">)</span>
-<span class="n">immobile</span><span class="p">[</span><span class="s1">&#39;sex&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">immobile</span><span class="o">.</span><span class="n">group</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s1">&#39;m&#39;</span> <span class="k">if</span> <span class="nb">int</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">&lt;=</span> <span class="mi">12</span> <span class="k">else</span> <span class="s1">&#39;f&#39;</span><span class="p">)</span>
 <span class="n">immobile</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;immobile.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 <span class="n">immobile</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100%|██████████████████████████████████████████████████████| 110/110 [00:08&lt;00:00, 12.95it/s]
-</pre></div>
-</div>
-<div class="output text_html"><div>
+<script type="application/vnd.jupyter.widget-view+json">
+{"model_id": "8b6d6bc2929c4d10a990c6e774946d89", "version_major": 2, "version_minor": 0}
+</script><div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
         vertical-align: middle;
@@ -2196,7 +1706,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>0</th>
       <td>female_g10_B1</td>
       <td>150.000000</td>
-      <td>m</td>
+      <td>female</td>
       <td>10</td>
       <td>B1</td>
     </tr>
@@ -2204,7 +1714,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>1</th>
       <td>female_g10_B2</td>
       <td>129.266667</td>
-      <td>m</td>
+      <td>female</td>
       <td>10</td>
       <td>B2</td>
     </tr>
@@ -2212,7 +1722,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>2</th>
       <td>female_g10_B3</td>
       <td>130.533333</td>
-      <td>m</td>
+      <td>female</td>
       <td>10</td>
       <td>B3</td>
     </tr>
@@ -2220,7 +1730,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>3</th>
       <td>female_g10_KET</td>
       <td>145.500000</td>
-      <td>m</td>
+      <td>female</td>
       <td>10</td>
       <td>KET</td>
     </tr>
@@ -2228,7 +1738,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>4</th>
       <td>female_g11_B1</td>
       <td>129.100000</td>
-      <td>m</td>
+      <td>female</td>
       <td>11</td>
       <td>B1</td>
     </tr>
@@ -2244,7 +1754,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>105</th>
       <td>male_g8_KET</td>
       <td>122.633333</td>
-      <td>m</td>
+      <td>male</td>
       <td>8</td>
       <td>KET</td>
     </tr>
@@ -2252,7 +1762,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>106</th>
       <td>male_g9_B1</td>
       <td>99.833333</td>
-      <td>m</td>
+      <td>male</td>
       <td>9</td>
       <td>B1</td>
     </tr>
@@ -2260,7 +1770,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>107</th>
       <td>male_g9_B2</td>
       <td>97.366667</td>
-      <td>m</td>
+      <td>male</td>
       <td>9</td>
       <td>B2</td>
     </tr>
@@ -2268,7 +1778,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>108</th>
       <td>male_g9_B3</td>
       <td>126.066667</td>
-      <td>m</td>
+      <td>male</td>
       <td>9</td>
       <td>B3</td>
     </tr>
@@ -2276,7 +1786,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
       <th>109</th>
       <td>male_g9_CON</td>
       <td>122.300000</td>
-      <td>m</td>
+      <td>male</td>
       <td>9</td>
       <td>CON</td>
     </tr>
@@ -2287,8 +1797,8 @@ Creating summary plots: 10it [00:00, 36.30it/s]
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">sex</span> <span class="ow">in</span> <span class="s1">&#39;mf&#39;</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">sex</span> <span class="o">==</span> <span class="s1">&#39;m&#39;</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">sex</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;male&#39;</span><span class="p">,</span> <span class="s1">&#39;female&#39;</span><span class="p">]:</span>
+    <span class="k">if</span> <span class="n">sex</span> <span class="o">==</span> <span class="s1">&#39;male&#39;</span><span class="p">:</span>
         <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&lt;h2&gt;Male&lt;/h2&gt;&quot;</span><span class="p">))</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="n">display</span><span class="p">(</span><span class="n">HTML</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&lt;h2&gt;Female&lt;/h2&gt;&quot;</span><span class="p">))</span>
@@ -2304,8 +1814,8 @@ Creating summary plots: 10it [00:00, 36.30it/s]
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_html"><h2>Male</h2></div><img alt="_images/analysis-demo-oft3_30_1.png" src="_images/analysis-demo-oft3_30_1.png" />
-<img alt="_images/analysis-demo-oft3_30_2.png" src="_images/analysis-demo-oft3_30_2.png" />
+<div class="output text_html"><h2>Male</h2></div><img alt="_images/analysis-demo-oft3_29_1.png" src="_images/analysis-demo-oft3_29_1.png" />
+<img alt="_images/analysis-demo-oft3_29_2.png" src="_images/analysis-demo-oft3_29_2.png" />
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2333,22 +1843,22 @@ Creating summary plots: 10it [00:00, 36.30it/s]
   <tbody>
     <tr>
       <th>C(treatment)</th>
-      <td>7491.512599</td>
+      <td>6670.056628</td>
       <td>4.0</td>
-      <td>8.016826</td>
-      <td>0.000014</td>
+      <td>21.507819</td>
+      <td>2.719679e-10</td>
     </tr>
     <tr>
       <th>Residual</th>
-      <td>21259.276105</td>
-      <td>91.0</td>
+      <td>3798.999586</td>
+      <td>49.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
   </tbody>
 </table>
-</div></div><div class="output text_html"><h2>Female</h2></div><img alt="_images/analysis-demo-oft3_30_5.png" src="_images/analysis-demo-oft3_30_5.png" />
-<img alt="_images/analysis-demo-oft3_30_6.png" src="_images/analysis-demo-oft3_30_6.png" />
+</div></div><div class="output text_html"><h2>Female</h2></div><img alt="_images/analysis-demo-oft3_29_5.png" src="_images/analysis-demo-oft3_29_5.png" />
+<img alt="_images/analysis-demo-oft3_29_6.png" src="_images/analysis-demo-oft3_29_6.png" />
 <div class="output text_html"><div>
 <style scoped>
     .dataframe tbody tr th:only-of-type {
@@ -2376,15 +1886,15 @@ Creating summary plots: 10it [00:00, 36.30it/s]
   <tbody>
     <tr>
       <th>C(treatment)</th>
-      <td>1871.635198</td>
+      <td>2360.167619</td>
       <td>5.0</td>
-      <td>0.899936</td>
-      <td>0.524739</td>
+      <td>12.328827</td>
+      <td>8.252652e-08</td>
     </tr>
     <tr>
       <th>Residual</th>
-      <td>3327.586389</td>
-      <td>8.0</td>
+      <td>1914.348889</td>
+      <td>50.0</td>
       <td>NaN</td>
       <td>NaN</td>
     </tr>
@@ -2426,7 +1936,7 @@ Creating summary plots: 10it [00:00, 36.30it/s]
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Open Field Test Analysis Demo</p>
+            <p class="prev-next-title">OFT2 Analysis</p>
         </div>
     </a>
 </div>

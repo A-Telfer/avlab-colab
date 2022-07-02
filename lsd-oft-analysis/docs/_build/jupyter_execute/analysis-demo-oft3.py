@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# # Open Field Test Analysis Demo
+# # OFT3 Analysis
 # 
 # The goal of this notebook is to produce several plots and data tables using the mouse coordinates extracted from video using DeepLabCut
 # 
@@ -36,7 +36,7 @@ from skimage.draw import polygon
 from ruamel.yaml import YAML
 from IPython.display import display, HTML, Image
 from statsmodels.formula.api import ols
-from tqdm import tqdm
+from tqdm.notebook import tqdm
 from pathlib import Path
 from scipy.stats import gaussian_kde
 from skimage.transform import resize
@@ -146,13 +146,14 @@ for idx in tqdm(range(len(frames)), position=0, leave=True, desc="Creating summa
     
 plt.tight_layout()
 plt.savefig(RESULTS / 'all-original-videos.png')
+plt.show()
 
 
 # ## Visualize Manual Corner Registrations
 # Here we plot the manually registered corners, which were done using [napari](https://napari.org/), over the image.
 # 
 
-# In[48]:
+# In[6]:
 
 
 registration_df = pd.read_csv(REGISTRATION_FILE)
@@ -196,7 +197,7 @@ plt.savefig(RESULTS / 'all-registrations.png')
 # ## Show Corrected Frames
 # Here we normalize the videos using the registered points. Notice that the position of the box inside the videos now appears to match up, and all of the boxes appear to be the same size.
 
-# In[49]:
+# In[7]:
 
 
 def get_perspective_transform(video):
@@ -232,7 +233,7 @@ for idx in tqdm(range(len(frames)), position=0, leave=True, desc="Correct frames
 for idx in tqdm(range(len(frames)), position=0, leave=True, desc="Creating individual plots"):
     plt.figure(figsize=(8,8))
     plt.imshow(corrected_frames[idx])
-    savepath = RESULTS / 'reference-plots' / 'corrected-frames-with-tracks' / f"{filename}.png"
+    savepath = RESULTS / 'reference-plots' / 'corrected-frames' / f"{filename}.png"
     if not savepath.parent.exists():
         savepath.parent.mkdir(parents=True)
     
@@ -259,7 +260,7 @@ plt.savefig(RESULTS / 'all-registrations.png')
 
 # ## Transform points
 
-# In[50]:
+# In[8]:
 
 
 def transform_dataframe_to_perspective(df, M):
@@ -323,7 +324,7 @@ for idx in tqdm(range(len(frames)), position=0, leave=True, desc="Creating indiv
     plt.xlabel("Width [mm]")
     plt.title(filename)
     
-    savepath = RESULTS / 'reference-plots' / 'corrected-frames' / f"{filename}.png"
+    savepath = RESULTS / 'reference-plots' / 'corrected-frames-with-tracks' / f"{filename}.png"
     if not savepath.parent.exists():
         savepath.parent.mkdir(parents=True)
     
@@ -359,13 +360,7 @@ plt.savefig(RESULTS / 'all-registrations.png')
 
 # ## Get Distances
 
-# In[55]:
-
-
-filename
-
-
-# In[61]:
+# In[10]:
 
 
 rows = []
@@ -399,7 +394,7 @@ distances.sample(3)
 # ### Quick data look
 # ANOVA plot (*assumptions such as distribution shape or homogeneity not checked here)
 
-# In[63]:
+# In[11]:
 
 
 for sex in ['male', 'female']:
@@ -416,7 +411,7 @@ for sex in ['male', 'female']:
 
 # ## Heatmaps
 
-# In[64]:
+# In[12]:
 
 
 video_info = []
@@ -433,7 +428,7 @@ for video in videos:
 treatment_df = pd.DataFrame(video_info)
 
 
-# In[71]:
+# In[13]:
 
 
 mgrid = np.mgrid[:h, :w]
@@ -464,7 +459,7 @@ for group_idx, group in treatment_df.groupby(['treatment', 'sex']):
     result[group_idx] = get_kde(df, 100)
 
 
-# In[73]:
+# In[14]:
 
 
 LEVELS = 20
@@ -510,7 +505,7 @@ plt.savefig(RESULTS / 'all-heatmaps.png')
 
 # ## Time in Center Area
 
-# In[75]:
+# In[23]:
 
 
 h, w = box_shape
@@ -566,23 +561,22 @@ for idx in tqdm(range(len(videos)), position=0, leave=True, desc="Creating indiv
     plt.close()
 
 time_in_center = pd.DataFrame(rows)
-time_in_center['sex'] = time_in_center.group.apply(lambda x: 'm' if int(x) <= 12 else 'f')
 time_in_center.to_csv(RESULTS / 'time_in_center.csv', index=False)
 time_in_center
 
 
 # Demonstrative image
 
-# In[76]:
+# In[16]:
 
 
 display(Image(savepath))
 
 
-# In[77]:
+# In[24]:
 
 
-for sex in 'mf':
+for sex in ['male', 'female']:
     if sex == 'm':
         display(HTML(f"<h2>Male</h2>"))
     else:
@@ -600,7 +594,7 @@ for sex in 'mf':
 # ## Immobility Time
 # Defined as < 5mm per second
 
-# In[79]:
+# In[20]:
 
 
 speed_per_second = 10 # in mm
@@ -631,16 +625,15 @@ for idx in tqdm(range(len(videos))):
     })
     
 immobile = pd.DataFrame(rows)
-immobile['sex'] = immobile.group.apply(lambda x: 'm' if int(x) <= 12 else 'f')
 immobile.to_csv('immobile.csv', index=False)
 immobile
 
 
-# In[80]:
+# In[21]:
 
 
-for sex in 'mf':
-    if sex == 'm':
+for sex in ['male', 'female']:
+    if sex == 'male':
         display(HTML(f"<h2>Male</h2>"))
     else:
         display(HTML(f"<h2>Female</h2>"))
